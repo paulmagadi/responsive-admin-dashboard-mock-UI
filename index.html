@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoe Store Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- ========== Sidebar ========== -->
+        <div class="sidebar" id="sidebar">
+            <button id="toggle-btn"><i class="fa-solid fa-angle-left"></i><i class="fas fa-bars"></i></button>
+            <button id="exit-sidebar"><i class="fa-solid fa-xmark"></i></button>
+            <ul>
+              <a href="#top"><li><i class="fas fa-home"></i> <span class="nav-text">Dashboard</span></li></a>
+              <a href="#orders"><li><i class="fas fa-shopping-cart"></i> <span class="nav-text">Orders</span></li></a>
+              <a href="#products"><li><i class="fas fa-box"></i> <span class="nav-text">Products</span></li></a>
+              <a href="#customers"><li><i class="fas fa-users"></i> <span class="nav-text">Customers</span></li></a>
+              <a href="#analytics"><li><i class="fas fa-chart-line"></i> <span class="nav-text">Analytics</span></li></a>
+            </ul>
+          </div>
+          
+        <!--========== Main Content ========== -->
+        <main class="main-content">
+
+            <!-- ========== Header ========== -->
+            <header class="topbar">
+                <button id="toggle-btn-topbar"><i class="fas fa-bars"></i></button>
+                <h1>Shoe Store Admin Dashboard</h1>
+            </header>
+
+            <!-- ========== Overview Section ========== -->
+            <section class="cards">
+                <div class="card">
+                    <h3>Total Orders</h3>
+                    <p>120</p>
+                </div>
+                <div class="card">
+                    <h3>Total Customers</h3>
+                    <p>75</p>
+                </div>
+                <div class="card">
+                    <h3>Products in Stock</h3>
+                    <p>300</p>
+                </div>
+                <div class="card">
+                    <h3>New Products</h3>
+                    <p>32</p>
+                </div>
+            </section>
+
+            <!-- ========== Orders Section ========== -->
+            <section class="orders-section" id="orders">
+                <h2>Recent Orders</h2>
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Status</th>
+                            <th>Total</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#1001</td>
+                            <td>Jane Doe</td>
+                            <td><span class="status shipped">Shipped</span></td>
+                            <td>$120</td>
+                            <td>2025-04-15</td>
+                        </tr>
+                        <tr>
+                            <td>#1002</td>
+                            <td>John Smith</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>$80</td>
+                            <td>2025-04-16</td>
+                        </tr>
+                        <tr>
+                            <td>#1003</td>
+                            <td>Mary Johnson</td>
+                            <td><span class="status delivered">Delivered</span></td>
+                            <td>$99</td>
+                            <td>2025-04-14</td>
+                        </tr>
+                        <tr>
+                            <td>#1004</td>
+                            <td>Mary Johnson</td>
+                            <td><span class="status cancelled">Cancelled</span></td>
+                            <td>$79</td>
+                            <td>2025-05-14</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========== Products Section ========== -->
+            <section class="products-section" id="products">
+                <h2>Product Inventory</h2>
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Stock</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#P101</td>
+                            <td>Nike Air Max</td>
+                            <td>Sneakers</td>
+                            <td>25</td>
+                            <td>$150</td>
+                            <td><span class="status in-stock">In Stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>#P102</td>
+                            <td>Adidas Ultraboost</td>
+                            <td>Running</td>
+                            <td>0</td>
+                            <td>$180</td>
+                            <td><span class="status out-stock">Out of Stock</span></td>
+                        </tr>
+                        <tr>
+                            <td>#P103</td>
+                            <td>Puma Suede Classic</td>
+                            <td>Casual</td>
+                            <td>12</td>
+                            <td>$75</td>
+                            <td><span class="status in-stock">In Stock</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- ========== Add Product Section ========== -->
+            <section class="add-product-section">
+                <h2>Add New Product</h2>
+                <form class="add-product-form">
+                    <div class="form-group">
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" placeholder="Enter product name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-category">Category</label>
+                        <input type="text" id="product-category" placeholder="e.g. Sneakers">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-price">Price ($)</label>
+                        <input type="number" id="product-price" placeholder="e.g. 120">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-stock">Stock Quantity</label>
+                        <input type="number" id="product-stock" placeholder="e.g. 20">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-status">Status</label>
+                        <select id="product-status">
+                            <option value="in-stock">In Stock</option>
+                            <option value="out-stock">Out of Stock</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Add Product</button>
+                </form>
+            </section>
+
+            <!-- ========== Customers Section ========== -->
+            <section class="customers-section" id="customers">
+                <h2>Customer List</h2>
+                <table class="customers-table">
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Total Orders</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#C001</td>
+                            <td>Alice Green</td>
+                            <td>alice@example.com</td>
+                            <td>+123456789</td>
+                            <td>5</td>
+                            <td><span class="status active">Active</span></td>
+                        </tr>
+                        <tr>
+                            <td>#C002</td>
+                            <td>Brian King</td>
+                            <td>brian@example.com</td>
+                            <td>+987654321</td>
+                            <td>2</td>
+                            <td><span class="status inactive">Inactive</span></td>
+                        </tr>
+                        <tr>
+                            <td>#C003</td>
+                            <td>Charlotte Lee</td>
+                            <td>charlotte@example.com</td>
+                            <td>+112233445</td>
+                            <td>8</td>
+                            <td><span class="status active">Active</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>    
+            
+            <!-- ========== Analytics Section ========== -->
+            <section class="charts-section" id="analytics">
+                <h2>Analytics Overview</h2>
+                <div class="chart-container">
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="ordersChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="visitsChart"></canvas>
+                </div>
+            </section>
+            
+            <!-- ========== Footer ========== -->
+            <footer>
+                <p>&copy; 2025 Shoe Store Admin Dashboard. All rights reserved.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+
+</html>
